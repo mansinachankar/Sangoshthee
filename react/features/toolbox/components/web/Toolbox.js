@@ -93,15 +93,13 @@ import HangupButton from "../HangupButton";
 import HelpButton from "../HelpButton";
 import MuteEveryoneButton from "../MuteEveryoneButton";
 import MuteEveryonesVideoButton from "../MuteEveryonesVideoButton";
-
 import AudioSettingsButton from "./AudioSettingsButton";
 import OverflowMenuButton from "./OverflowMenuButton";
 import OverflowMenuProfileItem from "./OverflowMenuProfileItem";
 import ToggleCameraButton from "./ToggleCameraButton";
 import ToolbarButton from "./ToolbarButton";
 import VideoSettingsButton from "./VideoSettingsButton";
-
-import UploadPPT from '../../../uploadPPT/upload';
+import UploadPPT from "../../../uploadPPT/upload";
 
 /**
  * The type of the React {@code Component} props of {@link Toolbox}.
@@ -1410,7 +1408,7 @@ class Toolbox extends Component<Props> {
     }
 
     _UploadPPT() {
-        this.props.dispatch(openDialog(UploadPPT)); 
+        this.props.dispatch(openDialog(UploadPPT));
     }
 
     /**
@@ -1439,7 +1437,7 @@ class Toolbox extends Component<Props> {
                           accessibilityLabel={t(
                               "toolbar.accessibilityLabel.shareYourScreen"
                           )}
-                          disabled={!_desktopSharingEnabled}
+                            disabled={!_desktopSharingEnabled}
                           icon={IconShareDesktop}
                           key="desktop"
                           onClick={this._onToolbarToggleScreenshare}
@@ -1506,7 +1504,7 @@ class Toolbox extends Component<Props> {
                   );
         }
 
-     /*   mainMenuAdditionalButtons.push(
+        /*   mainMenuAdditionalButtons.push(
             <ToolbarButton
                 icon={_changeIcon()}
                 key="startLocalRec"
@@ -1516,12 +1514,14 @@ class Toolbox extends Component<Props> {
             />
         ); */
 
-       mainMenuAdditionalButtons.push(<ToolbarButton
-            icon = { IconUpload }
-            key = 'uploadPPT'
-            onClick = { this._UploadPPT }
-            tooltip={t("Upload Presentation")}
-            />) 
+        mainMenuAdditionalButtons.push(
+            <ToolbarButton
+                icon={IconUpload}
+                key="uploadPPT"
+                onClick={this._UploadPPT}
+                tooltip={t("Upload Presentation")}
+            />
+        );
 
         if (this.props._shouldShowButton("raisehand")) {
             const raisedHand = this.props._raisedHand || false;
@@ -1571,7 +1571,7 @@ class Toolbox extends Component<Props> {
             />
         );
 
-       mainMenuAdditionalButtons.push(
+        mainMenuAdditionalButtons.push(
             //<SharedVideoButton key="sharedvideos" showLabel={true} />
             <ToolbarButton
                 accessibilityLabel={t("toolbar.accessibilityLabel.feedback")}
@@ -1581,18 +1581,7 @@ class Toolbox extends Component<Props> {
                 onClick={this._onToolbarOpenSharePPT}
                 tooltip={t("Share Presentation")}
             />
-        ); 
-
-
-
-
-
-
-
-
-
-
-
+        );
         if (
             this.props._shouldShowButton("participants-pane") ||
             this.props._shouldShowButton("invite")
